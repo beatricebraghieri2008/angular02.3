@@ -1,0 +1,7 @@
+<h2>Seleziona una Categoria</h2>
+
+<div class="category-buttons">
+  <button *ngFor="let t of types" type="button">
+    {{ t.name | uppercase }}
+  </button>
+</div>
