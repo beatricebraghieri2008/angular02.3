@@ -9,17 +9,14 @@ export class PokemonService {
 
   constructor(private http: HttpClient) {}
 
-  // Prende le categorie
   getTypes(): Observable<TypeResponse> {
     return this.http.get<TypeResponse>(`${this.baseUrl}/type`);
   }
 
-  // Prende i pokemon di una categoria
   getPokemonByType(url: string): Observable<PokemonInType> {
     return this.http.get<PokemonInType>(url);
   }
 
-  // Prende i dettagli di un singolo pokemon
   getDetails(url: string): Observable<PokemonDetails> {
     return this.http.get<PokemonDetails>(url);
   }

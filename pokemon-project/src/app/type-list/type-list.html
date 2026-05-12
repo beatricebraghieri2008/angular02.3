@@ -1,7 +1,23 @@
-<h2>Seleziona una Categoria</h2>
-
 <div class="category-buttons">
-  <button *ngFor="let t of types" type="button">
+  <button *ngFor="let t of types" type="button" (click)="selectType(t.url)">
     {{ t.name | uppercase }}
   </button>
+</div>
+
+<div *ngIf="selectedPokemon" style="border: 3px solid #ef5350; padding: 15px; margin: 20px 0; border-radius: 10px; background: #fff5f5; text-align: center; max-width: 300px;">
+  <h2 style="margin: 0;">{{ selectedPokemon.name | uppercase }}</h2>
+  <img [src]="selectedPokemon.sprites.front_default" style="width: 150px;">
+  <p><strong>Peso:</strong> {{ selectedPokemon.weight }} | <strong>Altezza:</strong> {{ selectedPokemon.height }}</p>
+  <button (click)="selectedPokemon = null">Chiudi</button>
+</div>
+
+<div *ngIf="pokemonList.length > 0">
+  <h3>Pokémon della categoria:</h3>
+  <ul style="column-count: 2;">
+    <li *ngFor="let p of pokemonList" 
+        (click)="showDetails(p.pokemon.url)" 
+        style="cursor: pointer; color: #2a75bb; font-weight: bold; margin-bottom: 5px;">
+      {{ p.pokemon.name }}
+    </li>
+  </ul>
 </div>
