@@ -1,13 +1,20 @@
 <div class="category-buttons">
-  <button *ngFor="let t of types" type="button" (click)="selectType(t.url)">
+  <button *ngFor="let t of types" type="button" (click)="selectType(t.url)" style="margin: 5px; padding: 10px; background-color: #ef5350; color: white; border: none; border-radius: 5px; cursor: pointer;">
     {{ t.name | uppercase }}
   </button>
 </div>
 
 <div *ngIf="selectedPokemon" style="border: 3px solid #ef5350; padding: 15px; margin: 20px 0; border-radius: 10px; background: #fff5f5; text-align: center; max-width: 300px;">
   <h2 style="margin: 0;">{{ selectedPokemon.name | uppercase }}</h2>
-  <img [src]="selectedPokemon.sprites.front_default" style="width: 150px;">
-  <p><strong>Peso:</strong> {{ selectedPokemon.weight }} | <strong>Altezza:</strong> {{ selectedPokemon.height }}</p>
+  <img [src]="selectedPokemon.sprites.front_default" style="width: 120px;">
+  
+  <p><strong>Punti Vita (HP):</strong> {{ selectedPokemon.stats[0].base_stat }}</p>
+  <p><strong>Abilità:</strong><br>
+    <span *ngFor="let a of selectedPokemon.abilities; let last = last">
+      {{ a.ability.name }}{{ last ? '' : ', ' }}
+    </span>
+  </p>
+
   <button (click)="selectedPokemon = null">Chiudi</button>
 </div>
 
@@ -16,7 +23,7 @@
   <ul style="column-count: 2;">
     <li *ngFor="let p of pokemonList" 
         (click)="showDetails(p.pokemon.url)" 
-        style="cursor: pointer; color: #2a75bb; font-weight: bold; margin-bottom: 5px;">
+        style="cursor: pointer; color: #2a75bb; font-weight: bold; margin-bottom: 5px; text-decoration: underline;">
       {{ p.pokemon.name }}
     </li>
   </ul>
