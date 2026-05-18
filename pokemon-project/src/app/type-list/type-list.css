@@ -1,12 +1,139 @@
-button {
-  margin: 5px;
-  padding: 10px;
+.layout {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 220px 1fr 320px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.types-panel,
+.details-panel {
+  padding: 16px;
+  border: 2px solid #ef5350;
+  border-radius: 12px;
+  background: #fff5f5;
+}
+
+.types-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border: 2px solid #d32f2f;
+  border-radius: 12px;
+  background: #fff1f1;
+  margin-bottom: 14px;
+}
+
+.types-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #bf360c;
+}
+
+.types-panel h2,
+.details-panel h2 {
+  margin-top: 0;
+}
+
+.type-options {
+  padding: 14px;
+  border: 2px solid #d32f2f;
+  border-radius: 12px;
+  background: #fff5f5;
+}
+
+.type-options h3 {
+  margin: 0 0 12px;
+}
+
+.pokemon-list-box {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #d32f2f;
+  border-radius: 10px;
+  background: #fff1f1;
+}
+
+.pokemon-list-box h4 {
+  margin-top: 0;
+}
+
+.types-list,
+.pokemon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.types-panel .list-toggle,
+.types-panel .page-button,
+.details-panel button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
   background-color: #ef5350;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
 }
-button:hover {
+
+.types-panel .list-toggle:hover,
+.types-panel .page-button:hover,
+.details-panel button:hover {
   background-color: #d32f2f;
+}
+
+.types-list li,
+.pokemon-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.types-list li:hover,
+.pokemon-list li:hover {
+  background-color: #ffd9d9;
+}
+
+.types-list li.selected {
+  background-color: #ef5350;
+  color: white;
+}
+
+.details-panel {
+  text-align: center;
+}
+
+.details-panel img {
+  width: 140px;
+  margin: 12px 0;
+}
+
+.details-panel button {
+  margin-top: 12px;
+  padding: 10px 18px;
+  background-color: #ef5350;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.details-panel button:hover {
+  background-color: #d32f2f;
+}
+
+.hint {
+  color: #6d6d6d;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
 }
